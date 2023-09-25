@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Stock extends Model
 {
+    protected $fillable=['quantity','measure_type','remarks'];
+    use HasFactory;
     use HasFactory;
 }
