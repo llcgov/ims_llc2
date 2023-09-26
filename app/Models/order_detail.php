@@ -5,9 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Stock extends Model
+class order_detail extends Model
 {
-    protected $fillable=['quantity','measure_type','remarks'];
-    use HasFactory;
     use HasFactory;
 }

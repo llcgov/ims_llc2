@@ -18,7 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
             $table->integer('quantity');
-            $table->string('supplier_name');
+            $table->string('measure_type');
+            $table->float('amount');
+            $table->string('remarks');
             $table->timestamps();
         });
     }
