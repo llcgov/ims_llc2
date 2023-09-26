@@ -13,6 +13,9 @@
     <!-- Custom styles for this template-->
     <link href="{{asset("css/sb-admin-2.min.css")}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
 
 </head>
 <body>    <!-- Page Wrapper -->
@@ -35,7 +38,7 @@
         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
     </div>
-    <div class="container">
+    <div class="container-fluid">
         @yield('content')
     </div>
     
@@ -67,28 +70,23 @@
     
 
     @include('Layouts.footer')
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js  "></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    {{-- <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js  "></script> --}}
+    {{-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> --}}
 
 
     <script type="text/javascript">
         new DataTable('#example');
     </script>
+
      <!-- Bootstrap core JavaScript-->
-     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
- 
+     <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
      <!-- Core plugin JavaScript-->
-     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
- 
+     <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
      <!-- Custom scripts for all pages-->
-     <script src="js/sb-admin-2.min.js"></script>
- 
-     <!-- Page level plugins -->
-     <script src="vendor/chart.js/Chart.min.js"></script>
- 
-     <!-- Page level custom scripts -->
-     <script src="js/demo/chart-area-demo.js"></script>
-     <script src="js/demo/chart-pie-demo.js"></script>
+     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
 
 </body>
 </html>

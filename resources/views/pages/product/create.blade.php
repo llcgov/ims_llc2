@@ -1,12 +1,37 @@
 @extends('Layouts.main')
 
 @section('content')
-    <form action="{{ route('product.store') }}" method="POST">
-        @csrf
-        <input class="form-control" type="text" name="prod_name" placeholder="Product Name">
-        <input class="form-control" type="text" name="model" placeholder="Model">
-        <input class="form-control" type="text" name="brand" placeholder="Brand">
-        <input class="form-control" type="text" name="type" placeholder="Type">
-        <input type="submit" value="Submit">
-    </form>
+
+    <div class="container">
+        <form action="{{ route('product.store') }}" method="POST">
+            @csrf
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3 mt-3">
+                        <label for="email" class="form-label">Name:</label>
+                        <input type="text" class="form-control" placeholder="Product Name" name="name">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3 mt-3">
+                        <label for="email" class="form-label">Brand:</label>
+                        <input type="text" class="form-control" placeholder="Brand" name="brand">
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="email" class="form-label">Model:</label>
+                <input type="text" class="form-control" placeholder="Model" name="model">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="email" class="form-label">Type:</label>
+                <input type="text" class="form-control" placeholder="Type" name="type">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="email" class="form-label">Type:</label>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
 @endsection
+
