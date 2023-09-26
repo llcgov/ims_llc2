@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Supply;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class SupplyController extends Controller
@@ -14,7 +15,8 @@ class SupplyController extends Controller
      */
     public function index()
     {
-        //
+        $data['supply'] = Supply::where('');
+        return ;
     }
 
     /**
@@ -24,7 +26,8 @@ class SupplyController extends Controller
      */
     public function create()
     {
-        //
+        $data['products'] = Product::all();
+        return view('pages.supply.create', $data);
     }
 
     /**
@@ -35,7 +38,15 @@ class SupplyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Supply::create([
+            'product_id' => 1,
+            'quantity' => $request->qty,
+            'measure_type' => $request->mtype,
+            'amount' => $request->amount,
+            'remarks' => $request->remarks,
+        ]);
+
+        return;
     }
 
     /**

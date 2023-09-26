@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('product_id')->references('id')->on('products');
             $table->integer('quantity');
             $table->string('measure_type');
-            $table->float('amount');
+            $table->float('amount', 8, 2);
             $table->string('remarks');
             $table->timestamps();
         });

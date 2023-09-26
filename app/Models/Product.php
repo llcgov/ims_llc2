@@ -9,4 +9,9 @@ class Product extends Model
 {
     protected $fillable=['name','model','brand','type'];
     use HasFactory;
+
+    public function supplies(){
+        return $this->hasMany(Supply::class);
+    }
+
 }

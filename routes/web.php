@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SupplyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('customer', CustomerController::class);
+Route::resource('product', ProductController::class);
+Route::resource('supply', SupplyController::class);

@@ -14,7 +14,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -24,7 +24,13 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        Customer::create([
+            'name' => "Arjay Cerio",
+            'service_type' => "Repair",
+            'address' => "Gabi, Cordova"
+        ]);
+
+        return "Testing";
     }
 
     /**
@@ -35,7 +41,7 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
