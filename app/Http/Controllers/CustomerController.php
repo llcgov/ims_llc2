@@ -14,7 +14,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        
+        $data['customer'] = customer::all();
+        return view('pages.customer.index', $data);
     }
 
     /**
@@ -24,13 +25,8 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        Customer::create([
-            'name' => "Arjay Cerio",
-            'service_type' => "Repair",
-            'address' => "Gabi, Cordova"
-        ]);
-
-        return "Testing";
+        $data['orders'] = Order::all();
+        return view('pages.order.create', $data);
     }
 
     /**
@@ -42,6 +38,20 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         
+        $customer = Customer::create([
+            'customer_name' => $request->CustomerName,
+            'address' => $request->address,
+            'contact_no' => $request->phoneNo,
+            'brand' => $request->brand,
+            'model' => $request->model,
+            'service_type' => $request->rtype,
+        ]);
+
+        $customer->order()->create([
+            
+        ]);
+
+        return redirect()->back();
     }
 
     /**

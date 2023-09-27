@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('customers_id');
             $table->foreign('customers_id')->references('id')->on('customers');
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products');
             $table->integer('quantity');
             $table->float('amount',8, 2);
             $table->timestamps();
