@@ -66,9 +66,12 @@ class SupplyController extends Controller
      * @param  \App\Models\Supply  $supply
      * @return \Illuminate\Http\Response
      */
-    public function edit(Supply $supply)
+    public function edit($id)
     {
-        //
+        $data['supply'] = Supply::find($id);
+        $data['products'] = Product::all();
+
+        return view('pages.supply.edit', $data);
     }
 
     /**
@@ -80,7 +83,14 @@ class SupplyController extends Controller
      */
     public function update(Request $request, Supply $supply)
     {
-        //
+        $supply->quantity = $request->qty;
+        $supply->measure_type = $request->mtype;
+        $supply->amount =  $request->amount;
+        $supply->remarks = $request->remarks;
+
+        $supply->save();
+
+        return redirect()->route('supply.index');
     }
 
     /**
@@ -89,8 +99,11 @@ class SupplyController extends Controller
      * @param  \App\Models\Supply  $supply
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Supply $supply)
+    public function destroy($id)
     {
-        //
+        $data = Supply::find($id);
+        $data->delete();
+        
+        return redirect()->back();
     }
 }
