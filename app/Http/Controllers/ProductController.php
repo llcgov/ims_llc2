@@ -43,7 +43,7 @@ class ProductController extends Controller
             'type' => $request->type,
         ]);
 
-        return;
+        return redirect()->back();
     }
 
     /**
