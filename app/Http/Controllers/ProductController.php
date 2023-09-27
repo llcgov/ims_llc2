@@ -45,7 +45,7 @@ class ProductController extends Controller
             'type' => $request->type,
         ]);
 
-        return redirect()->back();
+        return redirect()->route("product.index");
     }
 
     /**

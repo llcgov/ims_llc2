@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Product;
+use App\Models\Brand;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -25,6 +27,7 @@ class OrderController extends Controller
      */
     public function create()
     {
+        $data['brands'] = Brand::all();
         $data['products'] = Product::all();
         return view('pages.order.create', $data);
     }

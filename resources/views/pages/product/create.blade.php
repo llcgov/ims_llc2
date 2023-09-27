@@ -15,11 +15,12 @@
                 <div class="col-md-6">
                     <div class="mb-3 mt-3">
                         <label for="email" class="form-label">Brand:</label>
-                        <select class="form-select" name="product_id">
+                        <select class="form-select" name="brand">
                             @foreach ($brands as $item)
-                            <option value="{{ $item->id}}">{{$item->brand}}</option>
+                            <option value="{{ $item->brand}}">{{$item->brand}}</option>
                             @endforeach
-                        </select></div>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="mb-3 mt-3">
