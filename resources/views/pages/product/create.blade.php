@@ -15,8 +15,11 @@
                 <div class="col-md-6">
                     <div class="mb-3 mt-3">
                         <label for="email" class="form-label">Brand:</label>
-                        <input type="text" class="form-control" placeholder="e.g., Samsung" name="brand">
-                    </div>
+                        <select class="form-select" name="product_id">
+                            @foreach ($brands as $item)
+                            <option value="{{ $item->id}}">{{$item->brand}}</option>
+                            @endforeach
+                        </select></div>
                 </div>
             </div>
             <div class="mb-3 mt-3">

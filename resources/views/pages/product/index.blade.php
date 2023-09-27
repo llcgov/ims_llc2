@@ -39,8 +39,12 @@
                         </h5>
                     </td>
                     <td>
-                        <a href="" class="btn btn-warning"><i class="bi bi-pencil"></i></a>
-                        <a href="" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                        <a href="{{ route('product.edit', $item) }}"><button class="btn btn-warning"><i id="boot-icon" class="bi bi-pencil"></i></button></a>
+                        <form action="{{route('product.destroy', $item->id)}}" method="POST">
+                            @method('delete')
+                            @csrf
+                            <button class="btn btn-danger"><span id="boot-icon" class="bi bi-trash"></span></button>
+                        </form>
 
                     </td>
                 </tr>
