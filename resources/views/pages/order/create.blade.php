@@ -34,23 +34,28 @@
 
         <form action="{{ url('store-input-fields') }}" method="POST">
             @csrf
-            @if ($errors->any())
-            <div class="alert alert-danger" role="alert">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3 mt-3">
+                        <label for="email" class="form-label">Name:</label>
+                        <input type="text" class="form-control" placeholder="e.g., Samsung A32 LCD Screen Replacement" name="prod_name">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3 mt-3">
+                        <label for="email" class="form-label">Brand:</label>
+                        <input type="text" class="form-control" placeholder="e.g., Samsung" name="brand">
+                    </div>
+                </div>
             </div>
-            @endif
-            @if (Session::has('success'))
-            <div class="alert alert-success text-center">
-                <p>{{ Session::get('success') }}</p>
-            </div>
-            @endif
+
             <table class="table table-bordered" id="dynamicAddRemove">
                 <tr>
                     <th>Subject</th>
+                    <th>Address</th>
+                    <th>Phone No.</th>
+                    <th>Amount</th>
+                    <th>Quantity</th>
                     <th>Action</th>
                 </tr>
                 <tr>
@@ -64,5 +69,21 @@
 
     </div>
     
+    @push('scripts')
+            <script type="text/javascript">
+        var i = 0;
+        $("#dynamic-ar").click(function () {
+            ++i;
+            $("#dynamicAddRemove").append
+            ('<tr><td><input type="text" name="addMoreInputFields[' + i +
+                '][subject][phone no.][amount][quantity]" placeholder="Enter subject" class="form-control" /></td><td><button type="button" class="btn btn-outline-danger remove-input-field">Delete</button></td></tr>');
+                
+        });
+        $(document).on('click', '.remove-input-field', function () {
+            $(this).parents('tr').remove();
+        });
+    </script>
+    @endpush
+
 @endsection
 
