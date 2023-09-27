@@ -14,7 +14,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $data['order'] = Order::all();
+        return view('pages.order.index', $data);
     }
 
     /**
@@ -24,7 +25,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+     return view('pages.order.create');
     }
 
     /**
@@ -35,7 +36,13 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         Supply::create([
+            'customer_id' => $request->customer_id,
+            'quantity' => $request->quantity,
+            'amount' => $request->amount,
+        ]);
+
+        return redirect()->route('supply.index');
     }
 
     /**

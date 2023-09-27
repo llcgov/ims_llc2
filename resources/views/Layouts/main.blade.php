@@ -80,6 +80,18 @@
     <script type="text/javascript">
         new DataTable('#example');
     </script>
+    <script type="text/javascript">
+        var i = 0;
+        $("#dynamic-ar").click(function () {
+            ++i;
+            $("#dynamicAddRemove").append('<tr><td><input type="text" name="addMoreInputFields[' + i +
+                '][subject]" placeholder="Enter subject" class="form-control" /></td><td><button type="button" class="btn btn-outline-danger remove-input-field">Delete</button></td></tr>'
+                );
+        });
+        $(document).on('click', '.remove-input-field', function () {
+            $(this).parents('tr').remove();
+        });
+    </script>
 
      <!-- Bootstrap core JavaScript-->
      <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>

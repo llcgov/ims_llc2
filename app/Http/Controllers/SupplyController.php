@@ -15,8 +15,8 @@ class SupplyController extends Controller
      */
     public function index()
     {
-        $data['supply'] = Supply::where('');
-        return ;
+        $data['supply'] = Supply::all();
+        return view('pages.supply.index', $data);
     }
 
     /**
@@ -39,14 +39,14 @@ class SupplyController extends Controller
     public function store(Request $request)
     {
         Supply::create([
-            'product_id' => 1,
+            'product_id' => $request->product_id,
             'quantity' => $request->qty,
             'measure_type' => $request->mtype,
             'amount' => $request->amount,
             'remarks' => $request->remarks,
         ]);
 
-        return;
+        return redirect()->route('supply.index');
     }
 
     /**

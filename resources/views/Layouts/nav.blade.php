@@ -44,7 +44,7 @@
 
         <!-- Nav Item - Supply Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link" href="{{route('supply.create')}}"
+            <a class="nav-link" href="{{route('supply.index')}}"
                 aria-expanded="true" >
                 <span>Supply</span>
             </a>

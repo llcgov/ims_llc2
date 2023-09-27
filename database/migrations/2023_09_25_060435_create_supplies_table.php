@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->string('measure_type');
             $table->float('amount', 8, 2);
-            $table->string('remarks');
+            $table->string('remarks')->nullable();
             $table->timestamps();
         });
     }

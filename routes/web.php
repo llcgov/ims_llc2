@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplyController;
+use App\Http\Controllers\OrderController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,3 +25,4 @@ Route::get('/', function () {
 Route::resource('customer', CustomerController::class);
 Route::resource('product', ProductController::class);
 Route::resource('supply', SupplyController::class);
+Route::resource('order', OrderController::class);
