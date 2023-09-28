@@ -28,7 +28,7 @@
                     <div class="mb-3 mt-3">
                         <label  class="form-label">Measure Type:</label>
                         <select class="form-select" name="mtype">
-                            <option value="piece">Pc/s</option>
+                            <option value="piece" >Pc/s</option>
                             <option value="bundle">Bundle</option>
                             <option value="dozens">Dozens</option>
                             <option value="roll">Roll</option>
@@ -45,13 +45,13 @@
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3 mt-3">
-                        <label  class="form-label">Remarks/Status:</label>
+                        <label  class="form-label">Supplier - Remarks/Status:</label>
                         <input type="text" class="form-control" placeholder="Remarks/Status" name="remarks">
                     </div>
                 </div>
             </div>
-            <div class="mb-3 mt-3 fas fa-upload">
-                <input type="submit" value="Submit">
+            <div class="mb-3 mt-3">
+                <input class="btn btn-primary" type="submit" value="Submit">
             </div>
         </form>
     </div>

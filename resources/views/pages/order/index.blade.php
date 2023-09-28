@@ -9,36 +9,32 @@
         <tr>
             <th>Customer Name</th>
             <th>Request Type</th>
-            <th>Brand</th>
-            <th>Model</th>
+            <th>Product</th>
+            <th>Stocks Remaining</th> 
             <th>Action</th>
         </tr>
        </thead>
        <tbody>
+        <?php  $total_qty = 0 ?>
             @foreach ($order as $item)
-           <?php  $total_qty = 0 ?>
-                    <td>{{ $item->customerName }}</td>
-                    <td>{{ $item->rtye }}</td>
-                    <td>{{ $item->brand }}</td>
-                    <td>{{ $item->model }}</td>
+           
+                    <td>{{ $item->customer->customer_name }}</td>
+                    <td>{{ $item->customer->service_type }}</td>
+                    <td>{{ $item->product->name }}</td>
                     <td> 
                         <h5>
-                           
-                            @foreach ($item->supplies as $sup)
+
+                            @foreach ($item->product->supplies as $sup)
                             <?php $total_qty += $sup->quantity ?>
                             
                             @endforeach
                             {{ $total_qty }}
+
+                            {{-- {{ $item->product->supplies()->first()->quantity }} --}}
                         </h5>
                     </td>
                     <td>
-                        
                         <a href="{{ route('order.edit', $item->id) }}"><button class="btn btn-warning"><span id="boot-icon" class="bi bi-pencil"></span></button></a>
-                        <form action="{{route('order.destroy', $item->id)}}" method="POST">
-                            @method('delete')
-                            @csrf
-                            <button class="btn btn-danger"><span id="boot-icon" class="bi bi-trash"></span></button>
-                        </form>
                     </td>
                 </tr>
             @endforeach

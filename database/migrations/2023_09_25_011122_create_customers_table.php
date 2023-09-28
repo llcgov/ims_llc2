@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('customer_name');
             $table->string('address')->nullable();
-            $table->integer('contact_no');
+            $table->string('contact_no')->nullable();
             $table->string('service_type');
             $table->timestamps();
         });

@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    protected $fillable=['amount','quantity'];
+    protected $fillable=['amount','quantity', 'customers_id', 'product_id'];
     use HasFactory;
 
-    public function order_detail(){
-        return $this->hasMany(OrderDetail::class);
+    public function product(){
+        return $this->belongsTo(Product::class);
     }
 
     public function customer(){
-        return $this-> belongsTo(Customer::class);
+        return $this->belongsTo(Customer::class);
     }
 }

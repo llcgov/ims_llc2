@@ -31,38 +31,41 @@
                 
             </div>
             <h4>Order Details</h4>
-            <div class="row" id="dynamicAddRemove">
-                <div class="col-md-3">
-                    <div class="mb-3 mt-3">
-                        <label for="email" class="form-label">Request:</label>
-                        <select class="form-select" name="service_type" id="">
-                            <option value="Repair">Repair</option>
-                            <option value="replace">Replace</option>
-                        </select>
+            <div id="orderDetails">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="mb-3 mt-3">
+                            <label for="email" class="form-label">Request:</label>
+                            <select class="form-select" name="service_type">
+                                <option value="Repair">Repair</option>
+                                <option value="replace">Replace</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mb-3 mt-3">
-                        <label for="email" class="form-label">Brand:</label>
-                        <select class="form-select" name="product_id">
-                            @foreach ($products as $item)
-                            <option value="{{ $item->id}}">{{$item->name}} - P{{ $item->supplies->first()->amount}}</option>
-                            @endforeach
-                        </select>
+                    <div class="col-md-6">
+                        <div class="mb-3 mt-3">
+                            <label for="email" class="form-label">Prodcuts:</label>
+                            <select class="form-select" name="product_id">
+                                @foreach ($products as $item)
+                                <option value="{{ $item->id}}">{{$item->name}} - P{{ $item->supplies->first()->amount}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="mb-3 mt-3">
-                        <label for="email" class="form-label">Quantity:</label>
-                        <input type="number" class="form-control" placeholder="0" name="address">
+                    <div class="col-md-2">
+                        <div class="mb-3 mt-3">
+                            <label for="email" class="form-label">Quantity:</label>
+                            <input type="number" class="form-control" placeholder="0" name="quantity">
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-1">
-                    <div class="mb-3 mt-3">
-                        <button class="btn btn-primary" id="dynamic-ar">Add Another</button>
+                    <div class="col-md-1">
+                        <div class="mb-3 mt-3">
+                            <button class="btn btn-primary" id="dynamic-ar">Add Another</button>
+                        </div>
                     </div>
                 </div>
             </div>
+            
 {{-- 
 
             <table class="table table-bordered" id="dynamicAddRemove">
@@ -88,7 +91,8 @@
             var i = 0;
             $("#dynamic-ar").click(function () {
                 ++i;
-                $("#dynamicAddRemove").append('<tr><td><input type="text" name="addMoreInputFields[' + i +'][subject][phone no.][amount][quantity]" placeholder="Enter subject" class="form-control" /></td><td><button type="button" class="btn btn-outline-danger remove-input-field">Delete</button></td></tr>');
+                $("#orderDetails")
+                .append('<tr><td><input type="text" name="addMoreInputFields[' + i +'][subject][phone no.][amount][quantity]" placeholder="Enter subject" class="form-control" /></td><td><button type="button" class="btn btn-outline-danger remove-input-field">Delete</button></td></tr>');
             });
 
             $(document).on('click', '.remove-input-field', function () {

@@ -39,19 +39,18 @@ class CustomerController extends Controller
     {
         
         $customer = Customer::create([
-            'customer_name' => $request->CustomerName,
+            'customer_name' => $request->customer_name,
             'address' => $request->address,
-            'contact_no' => $request->phoneNo,
-            'brand' => $request->brand,
-            'model' => $request->model,
-            'service_type' => $request->rtype,
+            'contact_no' => $request->contact_no,
+            'service_type' => $request->service_type,
         ]);
 
-        $customer->order()->create([
-            
+        $customer->orders()->create([
+            'product_id' => $request->product_id,
+            'quantity' => $request->quantity
         ]);
 
-        return redirect()->back();
+        return redirect()->route('order.index');
     }
 
     /**
