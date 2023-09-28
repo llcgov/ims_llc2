@@ -27,7 +27,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        $data['brands'] = Brand::all();
+        $data['order'] = order::all();
         $data['products'] = Product::all();
         return view('pages.order.create', $data);
     }
