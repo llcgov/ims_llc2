@@ -2,7 +2,7 @@
 
 @section('content')
    
-    <a href="{{ route("product.create") }}" class="btn btn-primary">+ Create Product</a>
+    <a href="{{ route("product.create") }}" class="btn btn-primary">+ Add Product</a>
     
     <table  id="example" class="table table-striped" style="width:100%">
        <thead>

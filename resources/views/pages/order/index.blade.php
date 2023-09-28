@@ -2,7 +2,7 @@
 
 @section('content')
    
-    <a href="{{ route("order.create") }}" class="btn btn-primary">+ Create Order</a>
+    <a href="{{ route("order.create") }}" class="btn btn-primary">+ Add Order</a>
     
     <table  id="example" class="table table-striped" style="width:100%">
        <thead>
