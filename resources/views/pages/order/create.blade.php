@@ -44,7 +44,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3 mt-3">
-                            <label for="email" class="form-label">Prodcuts:</label>
+                            <label for="email" class="form-label">Products:</label>
                             <select class="form-select" name="product_id">
                                 @foreach ($products as $item)
                                 <option value="{{ $item->id}}">{{$item->name}} - P{{ $item->supplies->first()->amount}}</option>
