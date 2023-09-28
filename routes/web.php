@@ -18,9 +18,8 @@ use App\Http\Controllers\OrderController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [OrderController::class, 'index'])->name('home');
+Route::get('checkout/{id}/{quantity}', [OrderController::class, 'checkout'])->name('order.checkout');
 
 Route::resource('customer', CustomerController::class);
 Route::resource('product', ProductController::class);

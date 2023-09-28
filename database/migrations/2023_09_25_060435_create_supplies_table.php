@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('measure_type');
             $table->float('amount', 8, 2);
             $table->string('remarks')->nullable();
+            $table->boolean('stock_out')->default(0);
             $table->timestamps();
         });
     }

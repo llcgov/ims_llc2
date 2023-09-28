@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Brand;
+use App\Models\Supply;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -16,7 +17,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $data['order'] = Order::all();
+        $data['order'] = Order::where('confirmed', '0')->get();
+        // $data['order'] = Order::all();
         return view('pages.order.index', $data);
     }
 
@@ -31,30 +33,38 @@ class OrderController extends Controller
         $data['products'] = Product::all();
         return view('pages.order.create', $data);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function checkout($id, $quantity)
     {
+        $quantity = -1 * abs($quantity);
+        $order_id = intval($id);
+        $totalstock = 0;
+        $order = Order::find($order_id);
+        $product = $order->product;
+
+        foreach ($order->product->supplies as $supply) {
+            $totalstock += $supply->quantity;
+        }
+
+        if ($totalstock > 0) {
+            // $checkout = $totalstock - $quantity;
+            $supplies = Supply::create([
+                'product_id' => $order->product->id,
+                
+                'quantity' => $quantity,
+                'measure_type' => "Checked Out",
+                'amount' => "0",
+                'remarks' => "Stuck_Out item",
+                'stock_out' => 1
+            ]);
+            $order->confirmed = 1;
+            $order->save();
+        }
+
+
+
 
         return redirect()->route('order.index');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Order $order)
-    {
-        //
-    }
-
     /**
      * Show the form for editing the specified resource.
      *

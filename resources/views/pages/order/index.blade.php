@@ -11,7 +11,7 @@
             <th>Customer Name</th>
             <th>Request Type</th>
             <th>Product</th>
-            <th>Stocks Remaining</th> 
+            <th>Quantity</th> 
             <th>Action</th>
         </tr>
        </thead>
@@ -19,22 +19,11 @@
         <?php  $total_qty = 0 ?>
             @foreach ($order as $item)
                         
-                    <td><a href="" class="btn btn-info">Checkout</a></td>
+                    <td><a href="{{route('order.checkout', ['id'=> $item->id, 'quantity'=> $item->quantity])}}" class="btn btn-info" <?php $item->confirmed = 1 ? "disabled" : ""  ?>>Checkout</a></td>
                     <td>{{ $item->customer->customer_name }}</td>
                     <td>{{ $item->customer->service_type }}</td>
                     <td>{{ $item->product->name }}</td>
-                    <td> 
-                        <h5>
-
-                            @foreach ($item->product->supplies as $sup)
-                            <?php $total_qty += $sup->quantity ?>
-                            
-                            @endforeach
-                            {{ $total_qty }}
-
-                            {{-- {{ $item->product->supplies()->first()->quantity }} --}}
-                        </h5>
-                    </td>
+                    <td> {{ $item->quantity }}</td>
                     <td>
                         <a href="{{ route('order.edit', $item->id) }}"><button class="btn btn-warning"><span id="boot-icon" class="bi bi-pencil"></span></button></a>
                     </td>

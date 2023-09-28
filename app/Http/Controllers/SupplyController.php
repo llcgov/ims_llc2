@@ -15,7 +15,8 @@ class SupplyController extends Controller
      */
     public function index()
     {
-        $data['supply'] = Supply::all();
+        $data['total_stock'] = Supply::all();
+        $data['supply'] = Supply::where('stock_out', 0)->get();
         return view('pages.supply.index', $data);
     }
 
