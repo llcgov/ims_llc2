@@ -12,6 +12,7 @@
             <th>Brand</th>
             <th>Model</th>
             <th>Type</th>
+            <th>Price</th>
             <th>Stock</th>
             <th>Action</th>
         </tr>
@@ -27,6 +28,7 @@
                     <td>{{ $item->brand }}</td>
                     <td>{{ $item->model }}</td>
                     <td>{{ $item->type }}</td>
+                    <td>P{{ $item->supplies->first()->amount }}</td>
                     <td> 
                         <h5>
                            
