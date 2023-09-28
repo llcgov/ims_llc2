@@ -7,6 +7,7 @@
     <table  id="example" class="table table-striped" style="width:100%">
        <thead>
         <tr>
+            <th>Inventory</th>
             <th>Customer Name</th>
             <th>Request Type</th>
             <th>Product</th>
@@ -17,7 +18,8 @@
        <tbody>
         <?php  $total_qty = 0 ?>
             @foreach ($order as $item)
-           
+                        
+                    <td><a href="" class="btn btn-info">Checkout</a></td>
                     <td>{{ $item->customer->customer_name }}</td>
                     <td>{{ $item->customer->service_type }}</td>
                     <td>{{ $item->product->name }}</td>

@@ -22,7 +22,6 @@
                 <tr>
                     <td>
                         <a href="" class="btn btn-success">Stock In </a>
-                        <a href="" class="btn btn-info">Checkout</a>
                     </td>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->brand }}</td>
@@ -33,7 +32,6 @@
                            
                             @foreach ($item->supplies as $sup)
                             <?php $total_qty += $sup->quantity ?>
-                            
                             @endforeach
                             {{ $total_qty }}
                         </h5>
