@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Customer;
+use App\Models\customer;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -14,7 +14,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $data['customer'] = Customer::all();
+        $data['customer'] = customer::all();
         return view('pages.customer.index', $data);
     }
 
@@ -38,7 +38,7 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         
-        $customer = Customer::create([
+        $customer = customer::create([
             'customer_name' => $request->customer_name,
             'address' => $request->address,
             'contact_no' => $request->contact_no,
