@@ -14,7 +14,7 @@
             {{-- <th>Amount</th> --}}
             {{-- <th>Remarks</th> --}}
             <th>Created/Supply Date</th>
-            <th>Action</th>
+            {{-- <th>Action</th> --}}
         </tr>
        </thead>
        <tbody>
@@ -27,7 +27,7 @@
                     {{-- <td>P {{ $item->amount }}</td> --}}
                     {{-- <td>{{ $item->remarks }}</td> --}}
                     <td>{{ $item->created_at->format('F d, Y G: i') }}</td>
-                    <td>
+                    {{-- <td>
                         <a href="{{ route('supply.edit', $item->id) }}"><button class="btn btn-warning"><i id="boot-icon" class="bi bi-pencil"></i></button></a>
                         <form action="{{route('supply.destroy', $item->id)}}" method="POST">
                             @method('delete')
@@ -36,7 +36,7 @@
                         </form>
 
 
-                    </td>
+                    </td> --}}
                 </tr>
             @endforeach
        </tbody>
