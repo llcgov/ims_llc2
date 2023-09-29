@@ -1,13 +1,13 @@
 @extends('Layouts.main')
 
 @section('content')
-   
-    <a href="{{ route("product.create") }}" class="btn btn-primary">+ Add Product</a>
-    
+   @if (auth()->user()->usertype == "Supplier")
+    <a href="{{ route("product.create") }}" class="btn btn-primary">+ Add Product</a>   
+   @endif
+
     <table  id="example" class="table table-striped" style="width:100%">
        <thead>
         <tr>
-            <th>Inventory Action</th>
             <th>Name</th>
             <th>Brand</th>
             <th>Model</th>
@@ -21,9 +21,7 @@
             @foreach ($product as $item)
            <?php  $total_qty = 0 ?>
                 <tr>
-                    <td>
-                        <a href="" class="btn btn-success">Stock In </a>
-                    </td>
+                    
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->brand }}</td>
                     <td>{{ $item->model }}</td>
@@ -36,9 +34,12 @@
                             {{ $total_qty }}
                         </h5>
                     </td>
-                    <td>P
-                 
-                            {{ $item->supplies->first()->amount }}
+                    <td>
+                        @if (!empty($item->supplies->first()->amount))
+                            P{{ $item->supplies->first()->amount }}
+                        @else
+                            <strong>UNAVAILABLE</strong>
+                        @endif
                 
                     </td>
 

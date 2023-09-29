@@ -43,13 +43,14 @@
         </li>
 
         <!-- Nav Item - Supply Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('supply.index')}}"
-                aria-expanded="true" >
-                <span>Supply</span>
-            </a>
-
-        </li>
+        @if (auth()->user()->usertype == "Supplier")
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('supply.index')}}"
+                    aria-expanded="true" >
+                    <span>Supply</span>
+                </a>
+            </li>
+        @endif
 
      
 

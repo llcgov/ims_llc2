@@ -2,7 +2,9 @@
 
 @section('content')
    
-    <a href="{{ route("order.create") }}" class="btn btn-primary">+ Add Order</a>
+    @if (auth()->user()->usertype == "Information")
+       <a href="{{ route("order.create") }}" class="btn btn-primary">+ Add Order</a>    
+    @endif
     
     <table  id="example" class="table table-striped" style="width:100%">
        <thead>
