@@ -13,7 +13,7 @@
             <th>Model</th>
             <th>Type</th>
             <th>Stock</th>
-            <th>Price</th>
+            {{-- <th>Price</th> --}}
             <th>Action</th>
         </tr>
        </thead>
@@ -34,14 +34,14 @@
                             {{ $total_qty }}
                         </h5>
                     </td>
-                    <td>
+                    {{-- <td>
                         @if (!empty($item->supplies->first()->amount))
                             P{{ $item->supplies->first()->amount }}
                         @else
                             <strong>UNAVAILABLE</strong>
                         @endif
                 
-                    </td>
+                    </td> --}}
 
                     <td>
                         <a href="{{ route('product.edit', $item) }}"><button class="btn btn-warning"><i id="boot-icon" class="bi bi-pencil"></i></button></a>

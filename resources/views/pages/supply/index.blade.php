@@ -11,7 +11,7 @@
             <th>Name</th>
             <th>Quantity</th>
             <th>Measure Type</th>
-            <th>Amount</th>
+            {{-- <th>Amount</th> --}}
             {{-- <th>Remarks</th> --}}
             <th>Created/Supply Date</th>
             <th>Action</th>
@@ -24,7 +24,7 @@
                     <td>{{ $item->product->name }}</td>
                     <td>{{ $item->quantity }}</td>
                     <td>{{ $item->measure_type }}</td>
-                    <td>P {{ $item->amount }}</td>
+                    {{-- <td>P {{ $item->amount }}</td> --}}
                     {{-- <td>{{ $item->remarks }}</td> --}}
                     <td>{{ $item->created_at->format('F d, Y G: i') }}</td>
                     <td>

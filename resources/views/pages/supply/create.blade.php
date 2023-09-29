@@ -37,13 +37,13 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-md-3">
+                {{-- <div class="col-md-3">
                     <div class="mb-3 mt-3">
                         <label  class="form-label">Amount:</label>
                         <input type="text" class="form-control" placeholder="Amount" name="amount">
                     </div>
-                </div>
-                <div class="col-md-6">
+                </div> --}}
+                <div class="col-md-9">
                     <div class="mb-3 mt-3">
                         <label  class="form-label">Supplier - Remarks/Status:</label>
                         <input type="text" class="form-control" placeholder="Remarks/Status" name="remarks">

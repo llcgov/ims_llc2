@@ -47,14 +47,7 @@
                             <label for="email" class="form-label">Products:</label>
                             <select class="form-select" name="product_id">
                                 @foreach ($products as $item)
-                                <option value="{{ $item->id}}" {{ empty($item->supplies->first()->amount)  ? "disabled" : "" }}>
-                                    {{$item->name}} - 
-                                    @if (!empty($item->supplies->first()->amount))
-                                        P{{ $item->supplies->first()->amount }}
-                                    @else
-                                        <strong>UNAVAILABLE</strong>
-                                    @endif
-                                </option>
+                                <option value="{{ $item->id}}">{{$item->name}}</option>
                                 @endforeach
                             </select>
                         </div>
