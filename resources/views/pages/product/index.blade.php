@@ -12,8 +12,8 @@
             <th>Brand</th>
             <th>Model</th>
             <th>Type</th>
-            <th>Price</th>
             <th>Stock</th>
+            <th>Price</th>
             <th>Action</th>
         </tr>
        </thead>
@@ -28,16 +28,20 @@
                     <td>{{ $item->brand }}</td>
                     <td>{{ $item->model }}</td>
                     <td>{{ $item->type }}</td>
-                    <td>P{{ $item->supplies->first()->amount }}</td>
                     <td> 
                         <h5>
-                           
                             @foreach ($item->supplies as $sup)
                             <?php $total_qty += $sup->quantity ?>
                             @endforeach
                             {{ $total_qty }}
                         </h5>
                     </td>
+                    <td>P
+                 
+                            {{ $item->supplies->first()->amount }}
+                
+                    </td>
+
                     <td>
                         <a href="{{ route('product.edit', $item) }}"><button class="btn btn-warning"><i id="boot-icon" class="bi bi-pencil"></i></button></a>
                         <form action="{{route('product.destroy', $item->id)}}" method="POST">
